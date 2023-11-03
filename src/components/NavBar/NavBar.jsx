@@ -14,11 +14,15 @@ const NavBar = () => {
   const [navIcon, setNavIcon] = useState(false);
 
   return (
-    <nav>
+    <nav className="bg-yellow-200 p-2 text-black">
       <div className="text-2xl md:hidden" onClick={() => setNavIcon(!navIcon)}>
         {navIcon ? <AiOutlineClose /> : <AiOutlineMenu />}
       </div>
-      <ul className="md:flex justify-evenly">
+      <ul
+        className={`-ml-2 duration-1000 bg-yellow-200 md:flex justify-evenly absolute md:static ${
+          navIcon ? "top-10" : "-top-60"
+        }`}
+      >
         {routes.map((route) => (
           <NavLink key={route.id} route={route}></NavLink>
         ))}
